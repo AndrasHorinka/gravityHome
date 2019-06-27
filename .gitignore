@@ -9,3 +9,6 @@ __pycache__/
 
 # PyCharm
 .idea/
+/bin
+/lib
+/lib64
