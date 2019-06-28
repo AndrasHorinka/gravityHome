@@ -26,15 +26,15 @@ def get_the_index_of_the_closest_node(nodes):
 
     except TypeError:
         # TODO: add logger
-        print('Incorrect type passed as parameter')
+        raise TypeError('Incorrect type passed as parameter {0}', e)
 
     except AssertionError as e:
         # TODO: add logger
-        print(e)
+        raise AssertionError(e)
 
     except Exception as e:
         # TODO: add logger
-        print(e)
+        raise Exception(e)
 
 
 def get_the_shortest_distance_for_each_node(nodes):
@@ -54,17 +54,17 @@ def get_the_shortest_distance_for_each_node(nodes):
 
         return distances
 
-    except TypeError:
+    except TypeError as e:
         # TODO: add logger
-        print('Incorrect type passed as parameter')
+        raise TypeError('Incorrect type passed as parameter {0}', e)
 
     except AssertionError as e:
         # TODO: add logger
-        print(e)
+        raise AssertionError(e)
 
     except Exception as e:
         # TODO: add logger
-        print(e)
+        raise Exception(e)
 
 
 def get_the_closest_node_from_origin(origin, nodes):
@@ -78,11 +78,13 @@ def get_the_closest_node_from_origin(origin, nodes):
     max_distance_index = int()
 
     try:
-        assert isinstance(origin, (list, tuple)), "Origin is not an iterable"
         assert len(origin) != 0, "Node has no coordinates."
         assert len(nodes) != 0, "No other coordinates found."
 
         for i, node in enumerate(nodes):
+            if isinstance(nodes[i], list):
+                raise TypeError
+
             assert len(nodes[i]) != 0, str(i) + ". Node has no coordinates"
             assert len(origin) == len(nodes[i]), str(origin) + " & " + str(nodes[i]) + " don't have the same dimensions"
 
@@ -94,17 +96,17 @@ def get_the_closest_node_from_origin(origin, nodes):
 
         return max_distance_index, max_distance
 
-    except TypeError:
+    except TypeError as e:
         # TODO: add logger
-        print('Incorrect type passed as parameter')
+        raise TypeError('Incorrect type passed as parameter {0}', e)
 
     except AssertionError as e:
         # TODO: add logger
-        print(e)
+        raise AssertionError(e)
 
     except Exception as e:
         # TODO: add logger
-        print(e)
+        raise Exception(e)
 
 
 def get_distance_square(node_a, node_b):
@@ -115,10 +117,9 @@ def get_distance_square(node_a, node_b):
     """
 
     try:
-        assert isinstance(node_a, (list, tuple)), "Node A is not an iterable"
-        assert isinstance(node_b, (list, tuple)), "Node A is not an iterable"
         assert len(node_a) != 0, "Node A has no coordinates."
         assert len(node_b) != 0, "Node B has no coordinates."
+        assert len(node_a) == len(node_b), "Nodes have different dimensions"
 
         dist = 0
         for n in get_squares_of_coordinates(node_a, node_b):
@@ -129,14 +130,15 @@ def get_distance_square(node_a, node_b):
     except TypeError:
         # TODO: add logger
         print('Incorrect type passed as parameter')
+        raise TypeError
 
     except AssertionError as e:
         # TODO: add logger
-        print(e)
+        raise AssertionError(e)
 
     except Exception as e:
         # TODO: add logger
-        print(e)
+        raise Exception(e)
 
 
 def get_squares_of_coordinates(node_a, node_b):
@@ -146,9 +148,10 @@ def get_squares_of_coordinates(node_a, node_b):
     :return: Returns the square of two referring coordinates of the nodes. (A[i] - B[i]) ** 2
     """
     try:
-        if len(node_b) != len(node_a):
-            raise ValueError('Dimensions of the nodes differ!')
-            # TODO: add logger
+        assert len(node_a) != 0, "Node A has no coordinates."
+        assert len(node_b) != 0, "Node B has no coordinates."
+        assert len(node_a) == len(node_b), "Nodes have different dimensions"
+        # TODO: add logger
 
         i = 0
         while i < len(node_a):
@@ -157,8 +160,12 @@ def get_squares_of_coordinates(node_a, node_b):
 
     except TypeError:
         # TODO: add logger
-        print('Incorrect type passed as parameter')
+        raise TypeError('Incorrect type passed as parameter')
+
+    except AssertionError as e:
+        # TODO: add logger
+        raise AssertionError(e)
 
     except Exception as e:
         # TODO: add logger
-        print(e)
+        raise Exception(e)
