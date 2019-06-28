@@ -50,7 +50,8 @@ def get_the_shortest_distance_for_each_node(nodes):
             assert len(node) == len(nodes[i + 1]), str(node) + " & " + str(
                 nodes[i + 1]) + " don't have the same dimensions"
 
-            distances[i] = get_the_closest_node_from_origin(node, nodes[i + 1:])
+            distances[i] = get_the_closest_node_from_origin(
+                node, nodes[i + 1:])
 
         return distances
 
@@ -86,7 +87,8 @@ def get_the_closest_node_from_origin(origin, nodes):
                 raise TypeError
 
             assert len(nodes[i]) != 0, str(i) + ". Node has no coordinates"
-            assert len(origin) == len(nodes[i]), str(origin) + " & " + str(nodes[i]) + " don't have the same dimensions"
+            assert len(origin) == len(nodes[i]), str(
+                origin) + " & " + str(nodes[i]) + " don't have the same dimensions"
 
             n_distance = get_distance_square(origin, nodes[i])
 

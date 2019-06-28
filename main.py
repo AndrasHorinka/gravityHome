@@ -20,7 +20,7 @@ def main():
     print(mi.get_the_index_of_the_closest_node(sample2))
 
     sample3 = fileReader.get_table_from_file((SAMPLE_3))
-    print("-"*20)
+    print("-" * 20)
     print(mi.get_the_index_of_the_closest_node(sample3))
 
 

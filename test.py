@@ -23,7 +23,10 @@ class TestFileReader(unittest.TestCase):
             [str(499664.42762545496), str(72395.09685360803)]
         ]
 
-        self.assertEqual(data_file, expected_data_file, "FileReader Sample 2 is NOT OK!")
+        self.assertEqual(
+            data_file,
+            expected_data_file,
+            "FileReader Sample 2 is NOT OK!")
 
     def test_fileReader_sample_4(self):
         data_file = fileReader.get_table_from_file(self.SAMPLE_4)
@@ -34,7 +37,10 @@ class TestFileReader(unittest.TestCase):
             [str(-607784.1676060366), str(400299), str(-925526.2019860733), str(-779617)]
         ]
 
-        self.assertEqual(data_file, expected_data_file, "FileReader Sample 4 is NOT OK!")
+        self.assertEqual(
+            data_file,
+            expected_data_file,
+            "FileReader Sample 4 is NOT OK!")
 
 
 class TestMathematicalImplementationGetSquareOfCoordinates(unittest.TestCase):
@@ -135,7 +141,8 @@ class TestMathematicalImplementationGetDistanceSquare(unittest.TestCase):
             mi.get_distance_square(node_a, node_b)
 
 
-class TestMathematicalImplementationGetTheClosestNodeFromOrigin(unittest.TestCase):
+class TestMathematicalImplementationGetTheClosestNodeFromOrigin(
+        unittest.TestCase):
 
     def test_get_the_closest_node_from_origin_incorrectOriginType(self):
         node_a = 2
@@ -162,25 +169,29 @@ class TestMathematicalImplementationGetTheClosestNodeFromOrigin(unittest.TestCas
             mi.get_the_closest_node_from_origin(node_a, nodes)
 
 
-class TestMathematicalImplementationGetTheShortestDistanceForEachNodes(unittest.TestCase):
+class TestMathematicalImplementationGetTheShortestDistanceForEachNodes(
+        unittest.TestCase):
 
     def test_get_the_shortest_distance_for_each_node_nodesWithNoElements(self):
         nodes = []
         with self.assertRaises(AssertionError):
             mi.get_the_shortest_distance_for_each_node(nodes)
 
-    def test_get_the_shortest_distance_for_each_node_nodesWithOneElementOnly(self):
+    def test_get_the_shortest_distance_for_each_node_nodesWithOneElementOnly(
+            self):
         nodes = [1, 1]
         with self.assertRaises(AssertionError):
             mi.get_the_shortest_distance_for_each_node(nodes)
 
-    def test_get_the_shortest_distance_for_each_node_nodesWithDifferentDimensions(self):
+    def test_get_the_shortest_distance_for_each_node_nodesWithDifferentDimensions(
+            self):
         nodes = [[1, 1], [0, 1, 2]]
         with self.assertRaises(AssertionError):
             mi.get_the_shortest_distance_for_each_node(nodes)
 
 
-class TestMathematicalImplementationGetTheindexOfTheClosestNode(unittest.TestCase):
+class TestMathematicalImplementationGetTheIndexOfTheClosestNode(
+        unittest.TestCase):
 
     def test_get_the_index_of_the_closest_node_nodesWithNoElements(self):
         nodes = []
