@@ -83,9 +83,6 @@ def get_the_closest_node_from_origin(origin, nodes):
         assert len(nodes) != 0, "No other coordinates found."
 
         for i, node in enumerate(nodes):
-            if isinstance(nodes[i], list):
-                raise TypeError
-
             assert len(nodes[i]) != 0, str(i) + ". Node has no coordinates"
             assert len(origin) == len(nodes[i]), str(
                 origin) + " & " + str(nodes[i]) + " don't have the same dimensions"
