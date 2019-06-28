@@ -1,7 +1,7 @@
 import unittest
 
+from implementations import mathematical_imp as mi
 from services import fileReader
-from implementations import mathematical_imp
 
 
 class TestFileReader(unittest.TestCase):
@@ -37,13 +37,13 @@ class TestFileReader(unittest.TestCase):
         self.assertEqual(data_file, expected_data_file, "FileReader Sample 4 is NOT OK!")
 
 
-class TestMathematicalImplementation(unittest.TestCase):
+class TestMathematicalImplementationGetSquareOfCoordinates(unittest.TestCase):
 
     def test_get_squares_of_coordinates_2d_0_0_0_0(self):
         node_a = [0, 0]
         node_b = [0, 0]
         result = 0
-        for n in mathematical_imp.get_squares_of_coordinates(node_a, node_b):
+        for n in mi.get_squares_of_coordinates(node_a, node_b):
             result += n
 
         self.assertEqual(result, 0)
@@ -52,7 +52,7 @@ class TestMathematicalImplementation(unittest.TestCase):
         node_a = [1, 1]
         node_b = [1, 1]
         result = 0
-        for n in mathematical_imp.get_squares_of_coordinates(node_a, node_b):
+        for n in mi.get_squares_of_coordinates(node_a, node_b):
             result += n
 
         self.assertEqual(result, 0)
@@ -61,7 +61,7 @@ class TestMathematicalImplementation(unittest.TestCase):
         node_a = [-1, 1]
         node_b = [1, -1]
         result = 8
-        for n in mathematical_imp.get_squares_of_coordinates(node_a, node_b):
+        for n in mi.get_squares_of_coordinates(node_a, node_b):
             result += n
 
         self.assertEqual(result, 0)
@@ -70,7 +70,7 @@ class TestMathematicalImplementation(unittest.TestCase):
         node_a = [-10, -20]
         node_b = [10, 20]
         result = 2000
-        for n in mathematical_imp.get_squares_of_coordinates(node_a, node_b):
+        for n in mi.get_squares_of_coordinates(node_a, node_b):
             result += n
 
         self.assertEqual(result, 0)
@@ -79,25 +79,31 @@ class TestMathematicalImplementation(unittest.TestCase):
         node_a = [-10, -20]
         node_b = [0, 0]
         result = 500
-        for n in mathematical_imp.get_squares_of_coordinates(node_a, node_b):
+        for n in mi.get_squares_of_coordinates(node_a, node_b):
             result += n
 
         self.assertEqual(result, 0)
-
-# TODO: create 3d tests
-# TODO: create assertion tests if the two nodes doesn't have the same length
-# TODO: create assertion test if the coordinates are null of a node (node_a[])
-# TODO: create TypeAssertion test if the coordinates are not int/float - or can't be converted to it
 
     def test_get_squares_of_coordinates_3d_m10_m20_p0_m0(self):
         node_a = [-10, -20]
         node_b = [0, 0]
         result = 500
-        for n in mathematical_imp.get_squares_of_coordinates(node_a, node_b):
+        for n in mi.get_squares_of_coordinates(node_a, node_b):
             result += n
 
         self.assertEqual(result, 0)
 
+    def test_get_squares_of_coordinates_null_node(self):
+        node_a = []
+        node_b = [0, 0]
+        self.assertRaises
+        self.assertEqual(result, 0)
+
+# class TestMathematicalImplementationGetSquareOfCoordinates(unittest.TestCase):
+
+# TODO: create assertion tests if the two nodes doesn't have the same length
+# TODO: create assertion test if the coordinates are null of a node (node_a[])
+# TODO: create TypeAssertion test if the coordinates are not int/float - or can't be converted to it
 
 def main():
     unittest.main()

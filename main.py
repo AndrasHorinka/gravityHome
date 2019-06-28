@@ -1,5 +1,5 @@
 from services import fileReader
-from implementations import mathematical_imp
+from implementations import mathematical_imp as mi
 
 SAMPLE_2 = "samples/sample_input_2_8.tsv"
 SAMPLE_3 = "samples/sample_input_3_1000.tsv"
@@ -17,11 +17,11 @@ OUTPUT_100 = "samples/sample_output_100_100.txt"
 def main():
     sample2 = fileReader.get_table_from_file(SAMPLE_2)
     print("-" * 20)
-    print(mathematical_imp.get_the_index_of_the_closest_node(sample2))
+    print(mi.get_the_index_of_the_closest_node(sample2))
 
     sample3 = fileReader.get_table_from_file((SAMPLE_3))
     print("-"*20)
-    print(mathematical_imp.get_the_index_of_the_closest_node(sample3))
+    print(mi.get_the_index_of_the_closest_node(sample3))
 
 
 if __name__ == '__main__':
