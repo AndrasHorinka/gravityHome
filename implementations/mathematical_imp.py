@@ -3,7 +3,7 @@
 # As we can assume that if norm(A) > norm (B) than sqrt(A) > sqrt(B).
 
 
-def get_the_index_of_the_closest_node(nodes):
+def get_the_index_of_the_closest_nodes(nodes):
     """
     :param nodes: List of nodes with coordinates to be analyzed. [node1[x,y], node2[x,y]...] They can be n-dimensional nodes
     :return: index of the two closest node
