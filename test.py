@@ -190,18 +190,75 @@ class TestMathematicalImplementationGetTheShortestDistanceForEachNodes(
             mi.get_the_shortest_distance_for_each_node(nodes)
 
 
-class TestMathematicalImplementationGetTheIndexOfTheClosestNode(
+class TestMathematicalImplementationGetTheIndexOfTheClosestNodes(
         unittest.TestCase):
 
-    def test_get_the_index_of_the_closest_node_nodesWithNoElements(self):
+    def test_get_the_index_of_the_closest_nodes_nodesWithNoElements(self):
         nodes = []
         with self.assertRaises(AssertionError):
-            mi.get_the_index_of_the_closest_node(nodes)
+            mi.get_the_index_of_the_closest_nodes(nodes)
 
-    def test_get_the_index_of_the_closest_node_nodesWithOneElementOnly(self):
+    def test_get_the_index_of_the_closest_nodes_nodesWithOneElementOnly(self):
         nodes = [1, 1]
         with self.assertRaises(AssertionError):
-            mi.get_the_index_of_the_closest_node(nodes)
+            mi.get_the_index_of_the_closest_nodes(nodes)
+
+    def test_get_the_index_of_the_closest_nodes_TwoIndexesOnly(self):
+        data_file = fileReader.get_table_from_file(self.SAMPLE_2)
+
+        result = mi.get_the_index_of_the_closest_nodes(data_file)
+        self.assertCountEqual(result, 2)
+
+
+class TestMathematicalImplementationResultChecks(
+        unittest.TestCase):
+
+    def setUp(self):
+        self.SAMPLE_2 = "samples/sample_input_2_8.tsv"
+        self.SAMPLE_3 = "samples/sample_input_3_1000.tsv"
+        self.SAMPLE_4 = "samples/sample_input_4_4.tsv"
+        self.SAMPLE_10 = "samples/sample_input_10_100.tsv"
+        self.SAMPLE_100 = "samples/sample_input_100_100.tsv"
+
+    def test_sample2_results(self):
+        # TODO: mock out the fileReader
+        data_file = fileReader.get_table_from_file(self.SAMPLE_2)
+
+        expected_result = (3, 6)
+        result = mi.get_the_index_of_the_closest_nodes(data_file)
+        self.assertEqual(result, expected_result)
+
+    def test_sample3_results(self):
+        # TODO: mock out the fileReader
+        data_file = fileReader.get_table_from_file(self.SAMPLE_3)
+
+        expected_result = (223, 388)
+        result = mi.get_the_index_of_the_closest_nodes(data_file)
+        self.assertEqual(result, expected_result)
+
+    def test_sample4_results(self):
+        # TODO: mock out the fileReader
+        data_file = fileReader.get_table_from_file(self.SAMPLE_4)
+
+        expected_result = (2, 3)
+        result = mi.get_the_index_of_the_closest_nodes(data_file)
+        self.assertEqual(result, expected_result)
+
+    def test_sample10_results(self):
+        # TODO: mock out the fileReader
+        data_file = fileReader.get_table_from_file(self.SAMPLE_10)
+
+        expected_result = (40, 94)
+        result = mi.get_the_index_of_the_closest_nodes(data_file)
+        self.assertEqual(result, expected_result)
+
+    def test_sample100_results(self):
+        # TODO: mock out the fileReader
+        data_file = fileReader.get_table_from_file(self.SAMPLE_100)
+
+        expected_result = (48, 96)
+        result = mi.get_the_index_of_the_closest_nodes(data_file)
+        self.assertEqual(result, expected_result)
 
 
 def main():
