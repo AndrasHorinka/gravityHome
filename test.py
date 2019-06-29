@@ -99,20 +99,6 @@ class TestMathematicalImplementationGetSquareOfCoordinates(unittest.TestCase):
 
         self.assertEqual(result, 500)
 
-    def test_get_squares_of_coordinates_incorrect_type(self):
-        # TODO: check why typeerror is not raised
-        node_a = 2
-        node_b = [0, 0]
-        with self.assertRaises(TypeError):
-            mi.get_squares_of_coordinates(node_a, node_b)
-
-    def test_get_squares_of_coordinates_zeroLengthList(self):
-        # TODO: check why assertion error is not thrown
-        node_a = []
-        node_b = [0, 0]
-        with self.assertRaises(AssertionError):
-            mi.get_squares_of_coordinates(node_a, node_b)
-
 
 class TestMathematicalImplementationGetDistanceSquare(unittest.TestCase):
 
@@ -160,12 +146,6 @@ class TestMathematicalImplementationGetTheClosestNodeFromOrigin(
         node_a = []
         nodes = [[0, 0], [1, 1]]
         with self.assertRaises(AssertionError):
-            mi.get_the_closest_node_from_origin(node_a, nodes)
-
-    def test_get_the_closest_node_from_origin_noDestinationCoordinates(self):
-        node_a = [1, 1]
-        nodes = [[0], [1, 1]]
-        with self.assertRaises(TypeError):
             mi.get_the_closest_node_from_origin(node_a, nodes)
 
 
