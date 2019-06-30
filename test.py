@@ -1,6 +1,7 @@
 import unittest
 
 from implementations import mathematical_imp as mi
+from implementations import pure_numPy_imp as np
 from implementations import sciPy_imp as sp
 from services import fileReader
 
@@ -31,12 +32,22 @@ class TestFileReader(unittest.TestCase):
 
     def test_fileReader_sample_4(self):
         data_file = fileReader.get_table_from_file(self.SAMPLE_4)
-        expected_data_file = [
-            [float(653725), float(-422117.9078937047), float(-483855), float(-579967)],
-            [float(-543446.8852285817), float(-319599.12096280814), float(130119), float(42410.4020668423)],
-            [float(-800188), float(58364), float(586736), float(-409415)],
-            [float(-607784.1676060366), float(400299), float(-925526.2019860733), float(-779617)]
-        ]
+        expected_data_file = [[float(653725),
+                               float(-422117.9078937047),
+                               float(-483855),
+                               float(-579967)],
+                              [float(-543446.8852285817),
+                               float(-319599.12096280814),
+                               float(130119),
+                               float(42410.4020668423)],
+                              [float(-800188),
+                               float(58364),
+                               float(586736),
+                               float(-409415)],
+                              [float(-607784.1676060366),
+                               float(400299),
+                               float(-925526.2019860733),
+                               float(-779617)]]
 
         self.assertEqual(
             data_file,
@@ -271,6 +282,41 @@ class TestResultChecks(unittest.TestCase):
 
         expected_result = (48, 96)
         result = sp.get_the_index_of_the_closest_nodes(data_file)
+        self.assertEqual(result, expected_result)
+
+    def test_sample2_results_pureNumPy(self):
+        data_file = fileReader.get_table_from_file(self.SAMPLE_2)
+
+        expected_result = (3, 6)
+        result = np.get_the_index_of_the_closest_nodes(data_file)
+        self.assertEqual(result, expected_result)
+
+    def test_sample3_results_pureNumPy(self):
+        data_file = fileReader.get_table_from_file(self.SAMPLE_3)
+
+        expected_result = (223, 388)
+        result = np.get_the_index_of_the_closest_nodes(data_file)
+        self.assertEqual(result, expected_result)
+
+    def test_sample4_results_pureNumPy(self):
+        data_file = fileReader.get_table_from_file(self.SAMPLE_4)
+
+        expected_result = (2, 3)
+        result = np.get_the_index_of_the_closest_nodes(data_file)
+        self.assertEqual(result, expected_result)
+
+    def test_sample10_results_pureNumPy(self):
+        data_file = fileReader.get_table_from_file(self.SAMPLE_10)
+
+        expected_result = (40, 94)
+        result = np.get_the_index_of_the_closest_nodes(data_file)
+        self.assertEqual(result, expected_result)
+
+    def test_sample100_results_pureNumPy(self):
+        data_file = fileReader.get_table_from_file(self.SAMPLE_100)
+
+        expected_result = (48, 96)
+        result = np.get_the_index_of_the_closest_nodes(data_file)
         self.assertEqual(result, expected_result)
 
 
