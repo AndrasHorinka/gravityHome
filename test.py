@@ -14,14 +14,14 @@ class TestFileReader(unittest.TestCase):
     def test_fileReader_sample_2(self):
         data_file = fileReader.get_table_from_file(self.SAMPLE_2)
         expected_data_file = [
-            [str(-262972), str(508697)],
-            [str(-311943.65362731507), str(370239.3559213022)],
-            [str(742431), str(-772652)],
-            [str(-346046), str(696615.3537438104)],
-            [str(194172), str(103527)],
-            [str(726621.8167057682), str(-813087.8844925504)],
-            [str(167923), str(-312455.0459619701)],
-            [str(499664.42762545496), str(72395.09685360803)]
+            [float(-262972), float(508697)],
+            [float(-311943.65362731507), float(370239.3559213022)],
+            [float(742431), float(-772652)],
+            [float(-346046), float(696615.3537438104)],
+            [float(194172), float(103527)],
+            [float(726621.8167057682), float(-813087.8844925504)],
+            [float(167923), float(-312455.0459619701)],
+            [float(499664.42762545496), float(72395.09685360803)]
         ]
 
         self.assertEqual(
@@ -32,10 +32,10 @@ class TestFileReader(unittest.TestCase):
     def test_fileReader_sample_4(self):
         data_file = fileReader.get_table_from_file(self.SAMPLE_4)
         expected_data_file = [
-            [str(653725), str(-422117.9078937047), str(-483855), str(-579967)],
-            [str(-543446.8852285817), str(-319599.12096280814), str(130119), str(42410.4020668423)],
-            [str(-800188), str(58364), str(586736), str(-409415)],
-            [str(-607784.1676060366), str(400299), str(-925526.2019860733), str(-779617)]
+            [float(653725), float(-422117.9078937047), float(-483855), float(-579967)],
+            [float(-543446.8852285817), float(-319599.12096280814), float(130119), float(42410.4020668423)],
+            [float(-800188), float(58364), float(586736), float(-409415)],
+            [float(-607784.1676060366), float(400299), float(-925526.2019860733), float(-779617)]
         ]
 
         self.assertEqual(
