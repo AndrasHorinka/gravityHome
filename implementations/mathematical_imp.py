@@ -16,7 +16,7 @@ def get_squares_of_coordinates(node_a, node_b):
 
         i = 0
         while i < len(node_a):
-            yield (float(node_a[i]) - float(node_b[i])) ** 2
+            yield (node_a[i] - node_b[i]) ** 2
             i += 1
 
     except AssertionError as e:
