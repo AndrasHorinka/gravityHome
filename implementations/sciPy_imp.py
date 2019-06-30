@@ -7,9 +7,10 @@ def calculate_distance_of_each_nodes(nodes):
     :return: an NxM matrix where N stands for the Nodes and M stands for the distance of N(i) to N(each other)
     """
     try:
-        assert all([True for node in nodes if len(node) == len(nodes[0])]), "Not all nodes share the same dimension"
-        assert all([[True for dist in node if isinstance(float(dist), float)] for node in
-                    nodes]), "Not all coordinates are numbers"
+        assert all([True for node in nodes if len(node) == len(
+            nodes[0])]), "Not all nodes share the same dimension"
+        assert all([[True for dist in node if isinstance(float(dist), float)]
+                    for node in nodes]), "Not all coordinates are numbers"
 
         return distance.cdist(nodes, nodes, 'euclidean')
 
@@ -29,8 +30,8 @@ def replace_zeros(distances):
     try:
         assert len(distances) > 2, "There aren't enough nodes to compare"
 
-        return [[max(dist_from_node) + 2 if dist == 0 else dist for dist in dist_from_node] for dist_from_node in
-                distances]
+        return [[max(dist_from_node) + 2 if dist == 0 else dist for dist in dist_from_node]
+                for dist_from_node in distances]
 
     except AssertionError as a:
         raise a from None
@@ -60,9 +61,10 @@ def get_the_index_of_the_closest_nodes(nodes):
     :return: tuple(index of Node_a, index of Node_b) --> indexes of the two closest nodes in the list of Nodes (N)
     """
     try:
-        assert all([True for node in nodes if len(node) == len(nodes[0])]), "Not all nodes share the same dimension"
-        assert all([[True for dist in node if isinstance(float(dist), float)] for node in
-                    nodes]), "Not all coordinates are numbers"
+        assert all([True for node in nodes if len(node) == len(
+            nodes[0])]), "Not all nodes share the same dimension"
+        assert all([[True for dist in node if isinstance(float(dist), float)]
+                    for node in nodes]), "Not all coordinates are numbers"
 
         distances = replace_zeros(calculate_distance_of_each_nodes(nodes))
         min_distance = get_the_minimum_distance_of_nodes(distances)

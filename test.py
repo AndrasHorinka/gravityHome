@@ -128,7 +128,8 @@ class TestMathematicalImplementationGetDistanceSquare(unittest.TestCase):
             mi.get_distance_square(node_a, node_b)
 
 
-class TestMathematicalImplementationGetTheClosestNodeFromOrigin(unittest.TestCase):
+class TestMathematicalImplementationGetTheClosestNodeFromOrigin(
+        unittest.TestCase):
 
     def test_get_the_closest_node_from_origin_incorrectOriginType(self):
         node_a = 2
@@ -149,7 +150,8 @@ class TestMathematicalImplementationGetTheClosestNodeFromOrigin(unittest.TestCas
             mi.get_the_closest_node_from_origin(node_a, nodes)
 
 
-class TestMathematicalImplementationGetTheShortestDistanceForEachNodes(unittest.TestCase):
+class TestMathematicalImplementationGetTheShortestDistanceForEachNodes(
+        unittest.TestCase):
 
     def test_get_the_shortest_distance_for_each_node_nodesWithNoElements(self):
         nodes = []
@@ -169,7 +171,8 @@ class TestMathematicalImplementationGetTheShortestDistanceForEachNodes(unittest.
             mi.get_the_shortest_distance_for_each_node(nodes)
 
 
-class TestMathematicalImplementationGetTheIndexOfTheClosestNodes(unittest.TestCase):
+class TestMathematicalImplementationGetTheIndexOfTheClosestNodes(
+        unittest.TestCase):
 
     def setUp(self):
         self.SAMPLE_2 = "samples/sample_input_2_8.tsv"
