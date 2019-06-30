@@ -5,8 +5,8 @@
 
 def get_the_index_of_the_closest_nodes(nodes):
     """
-    :param nodes: List of nodes with coordinates to be analyzed. [node1[x,y], node2[x,y]...] They can be n-dimensional nodes
-    :return: index of the two closest node
+    :param nodes: an NxM matrix where N stands for Nodes and M stands for the coordinates of the Nodes
+    :return: tuple(index of Node_a, index of Node_b) --> indexes of the two closest nodes in the list of Nodes (N)
     """
     try:
         assert len(nodes) > 2, "Only one node found"
@@ -33,6 +33,10 @@ def get_the_index_of_the_closest_nodes(nodes):
 
 
 def get_the_shortest_distance_for_each_node(nodes):
+    """
+    :param nodes: an NxM matrix where N stands for Nodes and M stands for the coordinates of the Nodes
+    :return: a dictionary where index of N(i) is the key and value holds a tuple of (index N(other), distance from N(other))
+    """
     try:
         assert len(nodes) > 2, "Only one node found"
 
@@ -60,10 +64,9 @@ def get_the_shortest_distance_for_each_node(nodes):
 
 def get_the_closest_node_from_origin(origin, nodes):
     """
-    Returns the index and the distance of the closest other node of a set of nodes.
-    :param origin: Origin node with list of coordinates.
-    :param nodes: Set of nodes with coordinates to compare to.
-    :return: A dictionary with (max_distance_index: max_distance_value)
+    :param origin: Source Node to compare N(others) to. N = [coord1, coord2, ... coordn)
+    :param nodes: an NxM matrix where N stands for Nodes and M stands for the coordinates of the Nodes
+    :return: a tuple holding(index of Node(other), distance from Node(other)). The closest Node is referred to.
     """
     max_distance = float("inf")
     max_distance_index = int()
@@ -95,11 +98,10 @@ def get_the_closest_node_from_origin(origin, nodes):
 
 def get_distance_square(node_a, node_b):
     """
-    :param node_a: coordinates of node A in a list.
-    :param node_b: coordinates of node B in a list.
-    :return: Returns the square of distance of two nodes as Float.
+    :param node_a: Node(A) with coordinates. N = [coord1, coord2, ... coordn)
+    :param node_b: Node(B) with coordinates. N = [coord1, coord2, ... coordn)
+    :return: An int referring to the square of distance of Node(A) - Node(B).
     """
-
     try:
         assert len(node_a) != 0, "Node A has no coordinates."
         assert len(node_b) != 0, "Node B has no coordinates."
@@ -121,9 +123,9 @@ def get_distance_square(node_a, node_b):
 
 def get_squares_of_coordinates(node_a, node_b):
     """
-    :param node_a: coordinates of node A in a list.
-    :param node_b: coordinates of node B in a list.
-    :return: Returns the square of two referring coordinates of the nodes. (A[i] - B[i]) ** 2
+    :param node_a: Node(A) with coordinates. N = [coord1, coord2, ... coordn)
+    :param node_b: Node(B) with coordinates. N = [coord1, coord2, ... coordn)
+    :return: An int referring to the square of the difference of coordinates at the same dimension. (A[i] - B[i]) ** 2
     """
     try:
         assert len(node_a) != 0, "Node A has no coordinates."
