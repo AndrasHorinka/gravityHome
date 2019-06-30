@@ -121,9 +121,7 @@ def get_the_shortest_distance_for_each_node(
         raise e from None
 
 
-def get_the_index_of_the_closest_nodes(
-        nodes,
-        _get_the_shortest_distance_for_each_node=get_the_shortest_distance_for_each_node):
+def get_the_index_of_the_closest_nodes(nodes):
     """
     :param nodes: an NxM matrix where N stands for Nodes and M stands for the coordinates of the Nodes
     :return: tuple(index of Node_a, index of Node_b) --> indexes of the two closest nodes in the list of Nodes (N)
@@ -131,7 +129,7 @@ def get_the_index_of_the_closest_nodes(
     try:
         assert len(nodes) > 2, "Only one node found"
 
-        distances = _get_the_shortest_distance_for_each_node(nodes)
+        distances = get_the_shortest_distance_for_each_node(nodes)
         min_distance = float("inf")
         node_a_index = int()
         node_b_index = int()
