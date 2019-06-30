@@ -24,17 +24,12 @@ def get_the_index_of_the_closest_nodes(nodes):
 
         return node_a_index, node_b_index
 
-    except TypeError:
-        # TODO: add logger
-        raise TypeError('Incorrect type passed as parameter {0}', e)
-
     except AssertionError as e:
-        # TODO: add logger
-        raise AssertionError(e)
-
+        raise e from None
+    except TypeError as t:
+        raise t from None
     except Exception as e:
-        # TODO: add logger
-        raise Exception(e)
+        raise e from None
 
 
 def get_the_shortest_distance_for_each_node(nodes):
@@ -55,17 +50,12 @@ def get_the_shortest_distance_for_each_node(nodes):
 
         return distances
 
-    except TypeError as e:
-        # TODO: add logger
-        raise TypeError('Incorrect type passed as parameter {0}', e)
-
     except AssertionError as e:
-        # TODO: add logger
-        raise AssertionError(e)
-
+        raise e from None
+    except TypeError as t:
+        raise t from None
     except Exception as e:
-        # TODO: add logger
-        raise Exception(e)
+        raise e from None
 
 
 def get_the_closest_node_from_origin(origin, nodes):
@@ -95,17 +85,12 @@ def get_the_closest_node_from_origin(origin, nodes):
 
         return max_distance_index, max_distance
 
-    except TypeError as e:
-        # TODO: add logger
-        raise TypeError('Incorrect type passed as parameter {0}', e)
-
     except AssertionError as e:
-        # TODO: add logger
-        raise AssertionError(e)
-
+        raise e from None
+    except TypeError as t:
+        raise t from None
     except Exception as e:
-        # TODO: add logger
-        raise Exception(e)
+        raise e from None
 
 
 def get_distance_square(node_a, node_b):
@@ -126,18 +111,12 @@ def get_distance_square(node_a, node_b):
 
         return dist
 
-    except TypeError:
-        # TODO: add logger
-        print('Incorrect type passed as parameter')
-        raise TypeError
-
     except AssertionError as e:
-        # TODO: add logger
-        raise AssertionError(e)
-
+        raise e from None
+    except TypeError as t:
+        raise t from None
     except Exception as e:
-        # TODO: add logger
-        raise Exception(e)
+        raise e from None
 
 
 def get_squares_of_coordinates(node_a, node_b):
@@ -150,21 +129,15 @@ def get_squares_of_coordinates(node_a, node_b):
         assert len(node_a) != 0, "Node A has no coordinates."
         assert len(node_b) != 0, "Node B has no coordinates."
         assert len(node_a) == len(node_b), "Nodes have different dimensions"
-        # TODO: add logger
 
         i = 0
         while i < len(node_a):
             yield (float(node_a[i]) - float(node_b[i])) ** 2
             i += 1
 
-    except TypeError:
-        # TODO: add logger
-        raise TypeError('Incorrect type passed as parameter')
-
     except AssertionError as e:
-        # TODO: add logger
-        raise AssertionError(e)
-
+        raise e from None
+    except TypeError as t:
+        raise t from None
     except Exception as e:
-        # TODO: add logger
-        raise Exception(e)
+        raise e from None
