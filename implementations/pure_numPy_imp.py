@@ -4,18 +4,22 @@ from services import converter
 
 
 def get_euclidean_distance(vector1, vector2):
+    """
+    :param vector1: numPy.Array Node(A) containing coordinates
+    :param vector2: numPy.Array Node(B) containing coordinates
+    :return: float(square of distance of Node(A) and Node(B)
+    """
     dist = [(a - b) ** 2 for a, b in zip(vector1, vector2)]
     return sum(dist)
 
 
-# np.linalg.norm was way slower vs any other solutions, even with passing the reference in the signature. It is since it does way more then needed
-# def get_euclidean_distance(vector1, vector2, norm=np.linalg.norm):
-#     distance = norm(vector1 - vector2, 2, 0)
-#     return distance
-
-
 def calculate_distance_of_each_nodes(
         nodes, _get_euclidean_distance=get_euclidean_distance):
+    """
+    :param nodes: an NxM matrix where N stands for Nodes and M stands for the coordinates of the Nodes
+    :param _get_euclidean_distance: it is to pass the reference to the signature for performance optimalization
+    :return: list(N) of lists (M) where N is Node(Source) and M is calculated distance of Node(others) from Source
+    """
     distances = []
 
     for outer_index, source_node in enumerate(nodes):
@@ -37,6 +41,10 @@ def calculate_distance_of_each_nodes(
 
 
 def get_the_index_of_the_closest_nodes(nodes):
+    """
+    :param nodes: an NxM matrix where N stands for Nodes and M stands for the coordinates of the Nodes
+    :return: tuple(index of Node_a, index of Node_b) --> indexes of the two closest nodes in the list of Nodes (N)
+    """
     try:
         assert all([True for node in nodes if len(node) == len(
             nodes[0])]), "Not all nodes share the same dimension"
